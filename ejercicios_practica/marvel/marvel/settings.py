@@ -46,7 +46,7 @@ BASE_APPS = [
 THIRD_APPS = ['rest_framework']
 
 # Acá van las apps que creamos nosotros.
-LOCAL_APPS = ['e_commerce']
+LOCAL_APPS = ['e_commerce','rest_framework.authtoken', 'drf_yasg']
 
 INSTALLED_APPS = BASE_APPS + THIRD_APPS + LOCAL_APPS
 
@@ -64,6 +64,11 @@ INSTALLED_APPS = BASE_APPS + THIRD_APPS + LOCAL_APPS
 # ]
 
 REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+
+    ),
+
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.AllowAny',
     ),
